@@ -45,10 +45,10 @@ public class Robot {
     public boolean apagarRobot() {
         if (estado == true) {
             this.estado = false;
-            System.out.println("El robot esta apagado");
+            System.out.println("\n" + "El robot esta apagado" + "\n");
             return estado;
         } else {
-            System.out.println("El robot esta apagado");
+            System.out.println("\n" + "El robot esta apagado" + "\n");
             return estado;
         }
     }
@@ -59,25 +59,66 @@ public class Robot {
     public boolean encencerRobot() {
         if (estado == false) {
             this.estado = true;
-            System.out.println("El robot esta encendido");
+            System.out.println("\n" + "El robot esta encendido" + "\n");
             return estado;
         } else {
-            System.out.println("El robot esta encendido");
+            System.out.println("\n" + "El robot esta encendido" + "\n");
             return estado;
         }
     }
 
-    public int operacionesBasicas(String decisionAleatoria, int operando1, int operando2){
-
-        switch(decisionAleatoria){
-
-            case 1:
-                int resultando = operando1 + operando2;
-
+    public int operacionesBasicas(int decisionAleatoria, int operando1, int operando2) {
+        int resultado = 0;
+        if (1 == decisionAleatoria) {
+            resultado = operando1 + operando2;
+            System.out.println(" " + operando1 + " + " + operando2);
+        } else if (2 == decisionAleatoria) {
+            resultado = operando1 - operando2;
+            System.out.println(operando1 + " - " + operando2 + " ");
         }
+        return resultado;
     }
 
-    public String toString(){
-        return "Estado: " + estado; 
+    public int operacionesIntermedias(int decisionAleatoria, int operando1, int operando2, int operando3) {
+        int resultado = 0;
+        if (1 == decisionAleatoria) {
+            resultado = operando1 + operando2 + operando3;
+            System.out.println(" " + operando1 + " + " + operando2 + " + " + operando3);
+        } else if (2 == decisionAleatoria) {
+            resultado = operando1 - operando2 - operando3;
+            System.out.println(operando1 + " - " + operando2 + " - " + operando3);
+        } else if (3 == decisionAleatoria) {
+            resultado = operando1 * operando2 * operando3;
+            System.out.println(operando1 + " * " + operando2 + " * " + operando3);
+        }
+        return resultado;
+    }
+
+    public int operacionesAvanzadas(int decisionAleatoria, int operando1, int operando2, int aux) {
+        int resultado = 0;
+        if (decisionAleatoria == 1) {
+            resultado = operando1 + operando2;
+            System.out.println(" " + operando1 + " + " + operando2);
+        } else if (decisionAleatoria == 2) {
+            resultado = operando1 - operando2;
+            System.out.println(operando1 + " - " + operando2 + " ");
+        } else if (decisionAleatoria == 3) {
+            resultado = operando1 * operando2;
+            System.out.println(operando1 + " * " + operando2);
+        } else if (decisionAleatoria == 4) {
+            if (operando1 < operando2) {
+                operando1 += (operando2 - operando1) + aux;
+                resultado = operando1 / operando2;
+                System.out.println(operando1 + " / " + operando2 + " ");
+            } else {
+                resultado = operando1 / operando2;
+                System.out.println(operando1 + " / " + operando2 + " ");
+            }
+        }
+        return resultado;
+    }
+
+    public String toString() {
+        return "Estado: " + estado;
     }
 }
